@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load blog_tags %}
 {% block body %}
   <main id="main">
 
@@ -249,9 +250,9 @@
 
               {% include 'blog/blog-search.html' %}
 
-              {% include 'blog/blog-categories.html' %}
-
-              {% include 'blog/blog-posts.html' %}
+              {% postcategory %}
+              
+              {% latestpost %}
 
               {% include 'blog/blog-tags.html' %}
 
