@@ -14,7 +14,7 @@
           <ol>
             <li><a href="{% url 'website:index' %}">Home</a></li>
             <li><a href="{% url 'blog:blog' %}">Blog</a></li>
-            <li>Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia reiciendis</li>
+            <li>{{post.title}}</li>
           </ol>
         </div>
 
@@ -36,23 +36,22 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
+                <a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{post.published_date|date:"d M Y"}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'blog:single' pid=post.id %}"><time datetime="2020-01-01">{{post.published_date|date:"d M Y"}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="{% url 'blog:single' pid=post.id %}">{{post.counted_views}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">{{post.counted_views}} Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'blog:single' pid=post.id %}">{{post.counted_views}} Comments</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-tags"></i> <a href="{% url 'blog:single' pid=post.id %}">{{ post.category.all|join:", " }}</a></li>
                 </ul>
               </div>
 
               <div class="entry-content">
                 <p>
-                  Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                  Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
+                  {{post.content}}
                 </p>
 
                 <p>
