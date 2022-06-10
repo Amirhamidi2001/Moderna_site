@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ak_7gx+7qsynq6=5izuo38z@x05-1e!t-)mmd0bu@)&(9&jv^#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['moderna-site.herokuapp.com']
 
 
 # Application definition
@@ -119,14 +119,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR / 'statics')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = 'media'
 
-STATICFILES_DIRS = [
-    BASE_DIR /'statics',
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
