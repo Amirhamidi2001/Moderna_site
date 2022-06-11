@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pid>', blog_single, name= 'single'),
     path('category/<str:cat_name>', blog, name= 'category'),
     path('author/<str:author_username>', blog, name= 'author'),
+    path('search/', blog_search, name= 'search'),
 ]
