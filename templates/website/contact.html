@@ -72,7 +72,14 @@
               <div class="my-3">
                 <div class="error-message"></div>
               </div>
-              <div class="php-email-form"><button type="submit">Send Message</button></div>
+              <div class="php-email-form" style="float:right"> <button type="submit">Send Message</button></div>
+              {% if messages %}
+  						<ul class="messages">
+								{% for message in messages %}
+    						<div class="php-email-form" style="float: left;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    						{% endfor %}
+					  	</ul>
+							{% endif %}
             </form>
           </div>
 
