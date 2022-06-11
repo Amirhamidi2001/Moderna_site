@@ -20,8 +20,7 @@
 <body class="text-center" style="background-color: gainsboro;">
     <form class="form-signin" method="post" action="{% url 'accounts:signup' %}">
         {% csrf_token %}
-        <img class="m-5" src="{% static 'img/logo-invert.png' %}" alt="" width="220"
-            height="50">
+        <img class="m-5" src="{% static 'img/logo-invert.png' %}" alt="" width="100" height="100">
         <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
         
         <input type="text" name="username" class="form-control mt-2" placeholder="Username" required autofocus>
