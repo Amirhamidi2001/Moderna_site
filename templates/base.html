@@ -43,6 +43,16 @@
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
+      <div>
+        {% if request.user.is_authenticated %}
+        <li><a  href="#">Logged in as {{request.user.username}}</a></li>
+        <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'accounts:login' %}">Login</a></li>
+        <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+        {% endif %}
+      </div>
+      
       <div class="logo">
         <h1 class="text-light"><a href="{% url 'website:index' %}"><span>Moderna</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
