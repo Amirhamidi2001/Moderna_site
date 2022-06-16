@@ -39,6 +39,10 @@ def portfolio_view(request):
     return render(request, 'website/portfolio.html')
 
 
+def details(request):
+    return render(request, 'website/portfolio-details.html')
+
+
 def services_view(request):
     return render(request, 'website/services.html')
 
