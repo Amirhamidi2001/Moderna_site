@@ -4,7 +4,7 @@
 <div class="sidebar-item recent-posts">
   {% for post in posts %}
   <div class="post-item clearfix">
-    <img src="{{post.image.url}}" alt="">
+    <img src="{{post.image.url}}" alt="Moderna website photo">
     <h4><a href="{% url 'blog:single' pid=post.id %}">{{post.title}}</a></h4>
     <time datetime="2020-01-01">{{post.published_date|naturaltime}}</time>
   </div>
