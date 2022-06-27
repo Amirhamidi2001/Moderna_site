@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['moderna-site.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sites',
     'robots',
+    'taggit',
     'django_extensions',
     'website.apps.WebsiteConfig',
     'blog.apps.BlogConfig',

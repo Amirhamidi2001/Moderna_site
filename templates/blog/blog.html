@@ -44,15 +44,18 @@
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author}}</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'blog:single' pid=post.id %}"><time datetime="2020-01-01">{{post.published_date|date:"d M Y"}}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="{% url 'blog:single' pid=post.id %}">{{post.counted_views}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'blog:single' pid=post.id %}">{{post.counted_views}} Comments</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-tags"></i> <a href="{% url 'blog:single' pid=post.id %}">{{ post.category.all|join:", " }}</a></li>                  
+                  <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="{% url 'blog:single' pid=post.id %}">{{post.counted_views}} views</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-folder">
+                    {% for cat in post.category.all %}
+                      <a href="{% url 'blog:category' cat_name=cat.name %}">{{cat.name}}</a>{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                  </i>               
                 </ul>
               </div>
 
               <div class="entry-content">
                 <p>
-                  {{post.content|truncatewords:3}}
+                  {{post.content|truncatewords:4}}
                 </p>
                 <div class="read-more">
                   <a href="{% url 'blog:single' pid=post.id %}">Read More</a>
@@ -84,6 +87,8 @@
               {% include 'blog/blog-search.html' %}
 
               {% postcategory %}
+
+              {% include 'blog/blog-tags.html' %}
 
               {% latestpost %}
               
