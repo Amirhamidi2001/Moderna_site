@@ -8,9 +8,8 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
     empty_value_display = '-empty'
     list_display = ['title', 'author', 'counted_views', 'status', 'published_date']
-    list_filter = ['status','author',]
+    list_filter = ['status', 'author']
     ordering = ['-created_date']
-
 
 
 class CommentAdmin(admin.ModelAdmin):
@@ -19,6 +18,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'post', 'approved')
     list_filter = ('post', 'approved')
     search_fields = ('name', 'post')
+
 
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Category)

@@ -5,12 +5,13 @@ from blog.forms import CommentForm
 from django.contrib import messages
 # Create your views here.
 
+
 def blog(request, **kwargs):
     posts = Post.objects.filter(status=1)
     if kwargs.get('cat_name') != None:
-        posts = posts.filter(category__name = kwargs['cat_name'])
+        posts = posts.filter(category__name=kwargs['cat_name'])
     if kwargs.get('author_username') != None:
-        posts = posts.filter(author__username = kwargs['author_username'])
+        posts = posts.filter(author__username=kwargs['author_username'])
     if kwargs.get('tag_name') != None:
         posts = posts.filter(tags__name__in=[kwargs['tag_name']])
     posts = Paginator(posts, 3)
@@ -22,7 +23,7 @@ def blog(request, **kwargs):
     except EmptyPage:
         posts = posts.get_page(1)
     context = {'posts': posts}
-    return render(request, 'blog/blog.html',context)
+    return render(request, 'blog/blog.html', context)
 
 
 def blog_single(request, pid):
@@ -46,7 +47,7 @@ def blog_search(request):
     posts = Post.objects.filter(status=1)
     if request.method == 'GET':
         if request.GET.get('s'):
-            s =  request.GET.get('s')
-            posts = posts.filter(content__contains=s)    
-    context = {'posts':posts}
-    return render(request,'blog/blog.html',context)
+            s = request.GET.get('s')
+            posts = posts.filter(content__contains=s)
+    context = {'posts': posts}
+    return render(request, 'blog/blog.html', context)
