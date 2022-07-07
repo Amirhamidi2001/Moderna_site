@@ -80,6 +80,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'moderna.wsgi.application'
 
+# Keep our policy as strict as possible
+CSP_DEFAULT_SRC = ("'none'",)
+CSP_STYLE_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'",)
+CSP_FONT_SRC = ("'self'",)
+CSP_IMG_SRC = ("'self'",)
+
+# X-XSS-Protection
+SECURE_BROWSER_XSS_FILTER = True
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
